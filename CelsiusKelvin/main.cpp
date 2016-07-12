@@ -10,7 +10,7 @@
 
 double ctok(double c)
 {
-    if (c < -273.15) return -274;
+    if (c < -273.15) throw exception();
     int k = c + 273.15;
     return k;
 }
@@ -19,10 +19,13 @@ int main()
 {
     double c = 0;
     cin >> c;
-    double k = ctok(c);
-    if (k < -273.15) {
+    try {
+        double k = ctok(c);
+        cout << k << '\n';
+    }
+    catch (...) {
         cout << "Temp must be at least -273.15.\n";
         return 1;
     }
-    cout << k << '\n';
+    
 }
