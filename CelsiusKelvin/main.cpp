@@ -18,6 +18,10 @@ int main()
 {
     double c = 0;
     cin >> c;
+    if (c < -273.15) {
+        cout << "Temperature must be at least -273.15.\n";
+        return 1;
+    }
     double k = ctok(c);
     cout << k << '\n';
 }
