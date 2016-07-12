@@ -6,10 +6,18 @@
 //  Copyright © 2016 Brent Perry. All rights reserved.
 //
 
-#include <iostream>
+#include "../../../std_lib_facilities.h"
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+double ctok(double c)
+{
+    int k = c + 273.15;
+    return k;
+}
+
+int main()
+{
+    double c = 0;
+    cin >> c;
+    double k = ctok(c);
+    cout << k << '\n';
 }
