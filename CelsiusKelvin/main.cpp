@@ -10,7 +10,7 @@
 
 double ctok(double c)
 {
-    if (c < - 273.15) throw exception();
+    if (c < - 273.15) throw runtime_error("test");
     double k = c + 273.15;
     return k;
 }
@@ -65,8 +65,8 @@ int main()
                     double k = ctok(temp);
                     cout << k << '\n';
                 }
-                catch (...) {
-                    cout << "Temp must be at least -273.15.\n";
+                catch (runtime_error& e) {
+                    cout << "Temp must be at least 0.\n";
                     return 1;
                 }
             } else if (end_unit == 'f') {
@@ -83,8 +83,8 @@ int main()
                     double c = ktoc(temp);
                     cout << c << '\n';
                 }
-                catch (...) {
-                    cout << "Temp must be at least 0.\n";
+                catch (runtime_error& e) {
+                    cout << e.what() << "Temp must be at least 0.\n";
                     return 1;
                 }
             } else if (end_unit == 'f') {
